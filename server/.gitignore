@@ -1,2 +1,5 @@
 /node_modules
 .env
+/redis-4.0.9.tar.gz
+/docker-compose.yml
+/sonar-project.properties
