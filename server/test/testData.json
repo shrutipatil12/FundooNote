@@ -27,8 +27,18 @@
     "emailVerification": {
         "email":"shrutidpatil12@gmail.com",
         "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNocnV0aWRwYXRpbEBnbWFpbC5jb20iLCJpZCI6IiBkYXRhWzBdLl9pZCAiLCJpYXQiOjE1NTkzOTc2NjIsImV4cCI6MTY0NTc5NzY2Mn0.gFZnE7tn1IFyNQuzjOOTvgvwfxitBY5QV7QJI_LYZqQ"
+    },
+    "getUrl":{
+        	"originalUrl":"https://www.w3schools.com/js/js_ajax_examples.asp",
+            "shortBaseUrl":"http://localhost"
+            
+    },
+    "postUrl":{
+        "originalUrl": "https://www.w3schools.com/js/js_ajax_examples.asp"
     }
+}
+    
 
 
 
-    }
+    

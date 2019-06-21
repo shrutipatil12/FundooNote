@@ -9,9 +9,11 @@
  ******************************************************************************/
 var express = require('express');
 var userCtrl = require('../controller/regController')
-
+var userModel=require('../model/regModel')
 var router = express.Router();
 var verify = require('../authentication/tokenVerify')
+var upload=require('../middleWare/uploadProfile')
+var redis=require('../authentication/redisToken')
 
 console.log("router");
 
@@ -19,19 +21,27 @@ console.log("router");
 router.post('/login', userCtrl.login);
 
 //registeration API
-router.post('/register/',userCtrl.register);
+router.post('/register',userCtrl.register);
 
 //Verification API
-router.post('/isVerified/:token',verify.checkToken,userCtrl.isVerified)
+router.post('/isVerified',redis.checkRedisToken,userCtrl.isVerified);
 
 //reset password API
 router.post('/reset/:token', verify.checkToken, userCtrl.reset);
 
 //router.verify=require('../authentication/tokenVerify')
 const authentication = require('./authentication');
+
 router.use('/authentication', authentication);
 
 //forget password API
 router.post('/forget', userCtrl.forgetPassword);
 
+//postUrl API
+router.post('/postUrl', userCtrl.postUrl);
+
+//getUrl API
+router.post('/getUrl', userCtrl.getUrl);
+
+router.post('/uploadPhoto',upload.single('image'),userCtrl.uploadPhoto);
 module.exports = router;
