@@ -2,20 +2,20 @@
 {
     "registration": {
     "firstname": "shruti",
-    "email": "shrutidpatil12@gmail.com",
+    "email": "shrutipatil13@gmail.com",
     "password": "shruti@1996"
     },
     "login": {
-    "email":"shrutidpatil@gmail.com",
+    "email":"shrutidpatil13@gmail.com",
     "password":"123shruti1996"
     
     },
     "forgotPassword": {
-    "email":"shrutidpatil12@gmail.com"
+    "email":"shrutidpatil11113@gmail.com"
     
     },
     "verifyUser": {
-    "email":"shrutidpatil12@gmail.com",
+    "email":"shrutidpatil13@gmail.com",
     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNocnV0aWRwYXRpbEBnbWFpbC5jb20iLCJpZCI6IiBkYXRhWzBdLl9pZCAiLCJpYXQiOjE1NTkzOTc2NjIsImV4cCI6MTY0NTc5NzY2Mn0.gFZnE7tn1IFyNQuzjOOTvgvwfxitBY5QV7QJI_LYZqQ"
     
     },
@@ -25,7 +25,7 @@
     },
 
     "emailVerification": {
-        "email":"shrutidpatil12@gmail.com",
+        "email":"shrutidpatil13@gmail.com",
         "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNocnV0aWRwYXRpbEBnbWFpbC5jb20iLCJpZCI6IiBkYXRhWzBdLl9pZCAiLCJpYXQiOjE1NTkzOTc2NjIsImV4cCI6MTY0NTc5NzY2Mn0.gFZnE7tn1IFyNQuzjOOTvgvwfxitBY5QV7QJI_LYZqQ"
     },
     "getUrl":{

@@ -27,11 +27,10 @@ router.post('/register',userCtrl.register);
 router.post('/isVerified',redis.checkRedisToken,userCtrl.isVerified);
 
 //reset password API
-router.post('/reset/:token', verify.checkToken, userCtrl.reset);
+router.post('/reset', verify.checkToken, userCtrl.reset);
 
 //router.verify=require('../authentication/tokenVerify')
 const authentication = require('./authentication');
-
 router.use('/authentication', authentication);
 
 //forget password API
@@ -43,5 +42,6 @@ router.post('/postUrl', userCtrl.postUrl);
 //getUrl API
 router.post('/getUrl', userCtrl.getUrl);
 
+//uploadPhoto API
 router.post('/uploadPhoto',upload.single('image'),userCtrl.uploadPhoto);
 module.exports = router;

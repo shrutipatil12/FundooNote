@@ -12,16 +12,16 @@ chai.should()
 var server = require('../server');
 var fs = require('fs')
 function readFile() {
-    var obj=fs.readFileSync(`${__dirname}/testData.json`)
+    var obj = fs.readFileSync(`${__dirname}/testData.json`)
     var data = JSON.parse(obj);
     return data;
 }
 describe('Test case for uploadPhoto ', () => {
 
     it("uploadPhoto done successfuly or not", (done) => {
-        this.timeout=10000;
-        var data=readFile();
-        chai.request(server).post("/uploadPhoto").send(data.uploadPhoto).end((err, res) => {
+        this.timeout = 900000;
+        //var data=readFile();
+        chai.request(server).post("/uploadPhoto").attach('image', '/home/user/Pictures/FlowerDemo.jpeg').end((err, res) => {
             if (err) {
                 console.log('error in uploadPhoto', err)
                 err.should.have.status(400)

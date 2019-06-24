@@ -8,7 +8,6 @@
  
  ******************************************************************************/
 var userModel = require('../model/regModel');
-//var userMiddle=require('../middleWare/uploadProfile')
 
 module.exports.register = (data, callback) => {
     try {
@@ -20,14 +19,16 @@ module.exports.register = (data, callback) => {
             }
             else {
                 //return the result 
-                return callback(null, result);
+                 callback(null, result);
             }
         })
     }
     catch (err) {
-         /** 
-        * @description:Handle the exception
-        */
+        /** 
+       * @description:Handle the exception
+       */
+        console.log("error in catch block register", err);
+
         callback(err);
     }
 }
@@ -52,11 +53,11 @@ module.exports.login = (data, callback) => {
         })
     }
     catch (err) {
-          /** 
-           * @description:Handle the exception
-          */
-    
-        console.log("service 51");
+        /** 
+         * @description:Handle the exception
+        */
+
+        console.log("error in catch block login", err);
         callback(err);
     }
 }
@@ -80,9 +81,10 @@ module.exports.forgetPassword = (data, callback) => {
         })
     }
     catch (err) {
-         /** 
+        /** 
 * @description:Handle the exception
 */
+        console.log("error in catch block forgetPassword", err);
         callback(err);
     }
 
@@ -104,10 +106,11 @@ module.exports.reset = (data, callback) => {
             }
         })
     } catch (err) {
-         /** 
+        /** 
 * @description:Handle the exception
 */
-    
+        console.log("error in catch block reset", err);
+
         callback(err);
     }
 }
@@ -129,11 +132,11 @@ module.exports.isVerified = (req, callback) => {
         })
     }
     catch (err) {
-          /** 
+        /** 
 * @description:Handle the exception
 */
-    
-        console.log(" error in services catch", err);
+
+        console.log(" error in services catch verify", err);
         callback(err);
     }
 }
@@ -142,7 +145,7 @@ module.exports.isVerified = (req, callback) => {
 
 module.exports.getUrl = (data, callback) => {
     try {
-       
+
         userModel.getUrl(data, (err, result) => {
             if (err) {
                 //throw an error
@@ -155,10 +158,11 @@ module.exports.getUrl = (data, callback) => {
             }
         })
     } catch (err) {
-         /** 
+        /** 
 * @description:Handle the exception
 */
-    
+        console.log("error in catch block getUrl", err);
+
         callback(err);
     }
 }
@@ -176,44 +180,16 @@ module.exports.postUrl = (data, callback) => {
                 callback(err);
             } else {
                 //display the result
-                console.log("In service", result);
+               // console.log("In service", result);
                 callback(null, result);
             }
         })
     } catch (err) {
-         /** 
+        /** 
 * @description:Handle the exception
 */
-    
+        console.log("error in catch block postUrl", err);
+
         callback(err);
     }
 }
-
-
-
-
-
-// module.exports.uploadPhoto = (data, callback) => {
-//     try {
-//         //console.log("uploadPhoto services",data)
-//         userMiddle.uploadPhoto(data, (err, result) => {
-//             if (err) {
-//                 //throw an error
-//                 console.log("service error");
-//                 callback(err);
-//             } else {
-//                 //display the result
-//                 console.log("In service", result);
-//                 callback(null, result);
-//             }
-//         })
-//     } catch (err) {
-//          /** 
-// * @description:Handle the exception
-// */
-//     //console.log("uploadPhoto catch service",err)
-//         callback(err);
-//     }
-// }
-
-

@@ -1,6 +1,7 @@
+
 /******************************************************************************************
  * @Purpose     : write the testcases for testing backend using mocha and chai
- * @file        : testLogin.js
+ * @file        : testemialVerify.js
  * @author      : shruti
  * @version     : 1.0
  ******************************************************************************************/
@@ -16,28 +17,21 @@ const assert = require('chai').assert
 var jData = fs.readFileSync(`${__dirname}/testData.json`)
 var data = JSON.parse(jData)
 
-describe('Test case for Login page', () => {
-
-    it("login successfuly or not", (done) => {
+describe("Test case for Email Verification", () => {
+    it("Email Verification", (done) => {
         this.timeout=10000;
-        //var data=readFile();
-        chai.request(server).post("/login").send(data.login).end((err, res) => {
+            chai.request(server).post('/isVerified').set('token',data.emailVerification.token).end((err, res) => {
             if (err) {
-                console.log('error in email verification', err)
+                console.log("error in Email Verification", err);
                 err.should.have.status(400)
             }
             else {
-                console.log('result of login ', res.body);
-                res.should.have.status(200);
+                console.log("result of Email Verification", res.body);
+               // res.should.have.status(200);
             }
+
             done();
-            
+        })
+      
     })
-    it('password field should have minimum 3 characters length',done => {
-        let result = data.login.password;
-        let res = result.length;
-        assert.isTrue(res > 3)
-        done();
-        });
-})
 })

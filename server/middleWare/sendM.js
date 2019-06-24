@@ -25,7 +25,7 @@ module.exports.mail = (url,email) => {
   var mailOptions = {
     from: process.env.user,
     to:email,
-    subject: 'Go through the link ',
+    subject: 'Go through the below link ',
     text: url
   };
 console.log("28 mail",mailOptions)

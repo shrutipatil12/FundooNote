@@ -7,11 +7,15 @@
  *  @version        :1.0
  ******************************************************************************/
 const express = require('express');
+
+//middleware for handling JSON, Raw, Text and URL encoded form data.
 const bodyParser = require('body-parser');
 const dbConfig = require('../server/config/databaseconfig')
 var routes = require('../server/router/route')
 var ctrl = require('../server/controller/regController')
+//require the mongoose.Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
 const mongoose = require('mongoose');
+//Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
 require('dotenv').config()
 const app = express();
 require('http').createServer(app);
@@ -27,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 * @description: convert the text as JSON and show the resulting object.
 */
 app.use(bodyParser.json());
+// express-validator for server-side data validation.
 var expressValidator = require('express-validator')
 app.use(expressValidator());
 
@@ -50,20 +55,6 @@ mongoose.connect(dbConfig.url, {
 client.on('connect', function() {
     console.log('Redis client connected');
 });
-
-// client.on('error', function (err) {
-//     console.log('Something went wrong ' + err);
-// });
-// client.set('my test key', 'my test value', redis.print);
-// client.get('my test key', function (error, result) {
-//     if (error) {
-//         console.log(error);
-//         throw error;
-//     }
-//     console.log('GET result ->' + result);
-// });
-
-
 
 // var expressWinston = require('express-winston');
 // var winston = require('winston')

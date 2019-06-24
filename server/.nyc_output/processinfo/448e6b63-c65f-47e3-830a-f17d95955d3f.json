@@ -1,0 +1,1 @@
+{"uuid":"448e6b63-c65f-47e3-830a-f17d95955d3f","parent":null,"pid":27867,"argv":["/usr/bin/node","/usr/bin/npm","run","test"],"execArgv":[],"cwd":"/home/user/FundooNote/server","time":1561385906991,"ppid":27861,"root":"84c36ea9-77a2-45a6-9ef7-92d8253a94e7","coverageFilename":"/home/user/FundooNote/server/.nyc_output/448e6b63-c65f-47e3-830a-f17d95955d3f.json","files":[]}

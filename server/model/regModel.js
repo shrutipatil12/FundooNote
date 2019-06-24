@@ -17,7 +17,7 @@ const fs = require('fs');
 const path = require('path');
 
 /**
-* @description    : moongoose validations
+* @description    : moongoose validations used for give validations for schema 
 */
 
 
@@ -92,9 +92,9 @@ module.exports.register = (req, callback) => {
 
             }
             else if (data != null) {
-                console.log("sss", err)
+               // console.log("sss", err)
                 console.log('Email id exist');
-                callback(err)
+                return callback(err)
 
             } else {
                 /**
@@ -128,6 +128,8 @@ module.exports.register = (req, callback) => {
         /** 
         * @description:Handle the exception
         */
+       console.log("error in catch register",err);
+       
         res.send(err);
     }
 }
@@ -182,6 +184,8 @@ module.exports.login = (req, callback) => {
         /** 
         * @description:Handle the exception
         */
+       console.log("error in catch login",err);
+
         res.send(err);
     }
 }
@@ -216,6 +220,8 @@ module.exports.forgetPassword = (res, callback) => {
         /** 
         * @description:Handle the exception
         */
+       console.log("error in catch forgetPassword",err);
+
         res.send(err);
     }
 }
@@ -276,7 +282,7 @@ module.exports.isVerified = (req, res) => {
         /** 
         * @description:Handle the exception
         */
-        console.log("Error in user email verification catch block");
+        console.log("Error in user email verification catch block",err);
         res.send(err);
     }
 }
@@ -299,7 +305,7 @@ const errorUrl = 'http://localhost/error';
 
 module.exports.postUrl = (req, res) => {
 
-    console.log(req);
+    //console.log(req);
     const urlCode = req.query.code;
     console.log("url code", urlCode);
 
@@ -321,6 +327,8 @@ module.exports.getUrl = (req, res) => {
     const { originalUrl, shortBaseUrl } = req.body;
     console.log(originalUrl, shortBaseUrl)
     if (validUrl.isUri(shortBaseUrl)) {
+        console.log("in getUrl if stmt");
+        
     } else {
         return res
             .status(401)
@@ -337,7 +345,7 @@ module.exports.getUrl = (req, res) => {
                 if (err) {
                     return res("url already exists");
                 } else {
-                    shortUrl = shortBaseUrl + "/" + urlCode;
+                    var shortUrl = shortBaseUrl + "/" + urlCode;
                     console.log(shortUrl);
                     const item = new UrlShorten({
                         originalUrl,
@@ -362,5 +370,3 @@ module.exports.getUrl = (req, res) => {
             );
     }
 }
-
-
