@@ -20,9 +20,7 @@ module.exports.mail = (url,email) => {
       pass: process.env.pass
     }
   }));
-  //console.log("23 sendM ",transporter)
-
-  var mailOptions = {
+    var mailOptions = {
     from: process.env.user,
     to:email,
     subject: 'Go through the below link ',

@@ -1,32 +1,32 @@
 
 {
     "registration": {
-    "firstname": "shruti",
-    "email": "shrutipatil13@gmail.com",
-    "password": "shruti@1996"
+        "firstname":"dip",
+        "email":"dip12@gmail.com",
+        "password":"123456789"
     },
     "login": {
-    "email":"shrutidpatil13@gmail.com",
-    "password":"123shruti1996"
+    "email":"dip12@gmail.com",
+    "password":"123456789"
     
     },
     "forgotPassword": {
-    "email":"shrutidpatil11113@gmail.com"
+    "email":"dip12@gmail.com"
     
     },
     "verifyUser": {
-    "email":"shrutidpatil13@gmail.com",
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNocnV0aWRwYXRpbEBnbWFpbC5jb20iLCJpZCI6IiBkYXRhWzBdLl9pZCAiLCJpYXQiOjE1NTkzOTc2NjIsImV4cCI6MTY0NTc5NzY2Mn0.gFZnE7tn1IFyNQuzjOOTvgvwfxitBY5QV7QJI_LYZqQ"
+    "email":"dip12@gmail.com",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Il9pZCI6IjVkMjJlYzczZjlmM2RjMWVhYTVkMDIwYSJ9LCJpYXQiOjE1NjI1NzAxMzUsImV4cCI6MTU2MjY1NjUzNX0.biic6qTgm0iwIMAJXnZMmsPciVh30TmQDWJCW1e_-qE"
     
     },
     "resetPassword": {
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNocnV0aWRwYXRpbEBnbWFpbC5jb20iLCJpZCI6IiBkYXRhWzBdLl9pZCAiLCJpYXQiOjE1NTkzOTc2NjIsImV4cCI6MTY0NTc5NzY2Mn0.gFZnE7tn1IFyNQuzjOOTvgvwfxitBY5QV7QJI_LYZqQ",
-    "password":"shruti@1996"
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Il9pZCI6IjVkMjJlYzczZjlmM2RjMWVhYTVkMDIwYSJ9LCJpYXQiOjE1NjI1NzAxMzUsImV4cCI6MTU2MjY1NjUzNX0.biic6qTgm0iwIMAJXnZMmsPciVh30TmQDWJCW1e_-qE",
+    "password":"123456789"
     },
 
     "emailVerification": {
-        "email":"shrutidpatil13@gmail.com",
-        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNocnV0aWRwYXRpbEBnbWFpbC5jb20iLCJpZCI6IiBkYXRhWzBdLl9pZCAiLCJpYXQiOjE1NTkzOTc2NjIsImV4cCI6MTY0NTc5NzY2Mn0.gFZnE7tn1IFyNQuzjOOTvgvwfxitBY5QV7QJI_LYZqQ"
+        "email":"dip12@gmail.com",
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Il9pZCI6IjVkMjJlYzczZjlmM2RjMWVhYTVkMDIwYSJ9LCJpYXQiOjE1NjI1NzAxMzUsImV4cCI6MTU2MjY1NjUzNX0.biic6qTgm0iwIMAJXnZMmsPciVh30TmQDWJCW1e_-qE"
     },
     "getUrl":{
         	"originalUrl":"https://www.w3schools.com/js/js_ajax_examples.asp",

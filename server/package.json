@@ -1,23 +1,21 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 60000 ./test/**/*.js --exit",
-    "coverage": "./node_modules/.bin/nyc -r cobertura -r text-summary -r lcov npm run test",
+    "test": "mocha --timeout 60000 ./test/**/*.js --exit || true",
+    "coverage": "nyc -r cobertura -r text-summary -r lcov npm run test",
     "start": "node server.js",
     "dev": "nodemon server.js"
-    
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "aws-sdk": "^2.478.0",
-    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "commander": "^2.20.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-validator": "^5.3.1",
@@ -43,7 +41,22 @@
     "winston": "^3.2.1"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
     "mongoose-validator": "^2.1.0",
     "multer-s3": "^2.9.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shrutipatil12/FundooNote.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/shrutipatil12/FundooNote/issues"
+  },
+  "homepage": "https://github.com/shrutipatil12/FundooNote#readme",
+  "description": ""
 }

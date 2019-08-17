@@ -7,9 +7,11 @@
  
  ******************************************************************************/
 const jwt = require('jsonwebtoken');
+//var secretKey = process.env.secret;
+var secret='secretKey';
 module.exports = {
   generateNewToken(payload) {
-    const token = jwt.sign({ payload }, 'secretkey', { expiresIn: '1d' })
+    const token = jwt.sign({ payload },secret, { expiresIn: '1d' })
     const Obj = {
       success: true,
       message: "Token Genereted",

@@ -19,18 +19,22 @@ function readFile() {
 describe('Test case for uploadPhoto ', () => {
 
     it("uploadPhoto done successfuly or not", (done) => {
-        this.timeout = 900000;
+        this.timeout = 90000;
         //var data=readFile();
-        chai.request(server).post("/uploadPhoto").attach('image', '/home/user/Pictures/FlowerDemo.jpeg').end((err, res) => {
+        chai.request(server).post("/uploadPhoto").attach('image','/home/user/Pictures/FlowerDemo.jpeg')
+        .end((err, res) => {
             if (err) {
+                //Send the error status on console
                 console.log('error in uploadPhoto', err)
                 err.should.have.status(400)
             }
             else {
+                //Send the result status
                 console.log('result of uploadPhoto ', res.body);
                 res.should.have.status(200);
             }
-            done();
+            
         })
+        done();
     })
 })

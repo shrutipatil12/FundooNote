@@ -2,5 +2,5 @@ projectKey=FundooNote
 serverUrl=http://localhost:9000
 serverVersion=6.7.1.35068
 dashboardUrl=http://localhost:9000/dashboard/index/FundooNote
-ceTaskId=AWuJ2p6NJHezvYNk9vzU
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWuJ2p6NJHezvYNk9vzU
+ceTaskId=AWvgXQVQOL7vCsPt5G2Z
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWvgXQVQOL7vCsPt5G2Z

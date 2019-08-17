@@ -7,32 +7,32 @@
  
  ******************************************************************************/
 var jwt = require('jsonwebtoken');
-var redis = require('redis');
-var secret = "secretkey";
+//var redis = require('redis');
+var secret = 'secretKey';
 
-    exports.checkToken = (req, res, next) => {
-        try {
-        console.log("In authentication");
-        var token = req.headers['token'];
-        console.log("token in t verify",token);
-        
-         var Response={message:"invalid data"}
+exports.checkToken = (req, res, next) => {
+    try {
+        console.log("In authentication", req.headers);
+       var token = req.headers['token']||req.params.token
+        console.log("token in t verify", token);
+
+        var Response = { message: "invalid data" }
         if (token) {
             //verify the token here
             jwt.verify(token, secret, (err, decoded) => {
                 if (err) {
                     // throw if unauthorized error occurs
                     console.log(err)
-                console.log("Response",Response);
-                
+                    console.log("Response", Response);
+
                     return res.status(401).send({ Response });
-                    
+
                 }
                 else {
                     //show result
                     console.log("Decoded data" + JSON.stringify(decoded));
                     req.decoded = decoded;
-                    console.log("27 ",req.decoded)
+                    console.log("27 ", req.decoded)
                     next();
                 }
 
@@ -48,15 +48,15 @@ var secret = "secretkey";
 
 
 
-catch (err) {
-    //throw exception
-    console.log(" error while generating the token");
+    catch (err) {
+        //throw exception
+        console.log(" error while generating the token", err);
 
-}
     }
+}
 
 // exports.checkRedisToken = (req, res, next) => {
-  
+
 
 //         var jwt = require('jsonwebtoken');
 // //var client = redis.createClient();
@@ -77,5 +77,5 @@ catch (err) {
 //         });
 //         });
 //       }
-    
+
     //}

@@ -23,10 +23,12 @@ describe("Test case for postUrl", () => {
         var data=readFile();
         chai.request(server).post('/postUrl').send(data.postUrl).end((err, res) => {
             if (err) {
+                //Send the error report
                 console.log("error in postUrl", err);
                 err.should.have.status(400)
             }
             else {
+                //Send the result of the function as 200
                 console.log("result of postUrl", res.body);
                 res.should.have.status(200);
             }

@@ -23,10 +23,12 @@ describe('Test case for Login page', () => {
         //var data=readFile();
         chai.request(server).post("/login").send(data.login).end((err, res) => {
             if (err) {
+                //Send the error status
                 console.log('error in email verification', err)
                 err.should.have.status(400)
             }
             else {
+                //Send the result status as response
                 console.log('result of login ', res.body);
                 res.should.have.status(200);
             }
@@ -34,9 +36,9 @@ describe('Test case for Login page', () => {
             
     })
     it('password field should have minimum 3 characters length',done => {
-        let result = data.login.password;
-        let res = result.length;
-        assert.isTrue(res > 3)
+        let result = data.login.password;//Check for the password field
+        let res = result.length;//Check the length of the variable
+        assert.isTrue(res > 3)//Check the output of the funtion
         done();
         });
 })

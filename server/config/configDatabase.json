@@ -1,0 +1,25 @@
+{
+    "development": {
+    "config_id": "development",
+    "app_name": "FundooNotesApplication",
+    "app_desc": "create application",
+    "node_port": 4000,
+    "json_indentation": 4,
+    "database": "fundooNote",
+    "mongourl": "mongodb://localhost:27017/fundooNote"
+    },
+    "testing": {
+    "config_id": "testing",
+    "database": "my-app-db-test"
+    },
+    "staging": {
+    "config_id": "staging",
+    "node_port": 8080,
+    "database": "my-app-db-stag"
+    },
+    "production": {
+    "config_id": "production",
+    "node_port": 8080,
+    "database": "my-app-db-prod"
+    }
+    }

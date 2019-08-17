@@ -1,4 +1,3 @@
-
 /******************************************************************************
  *  Execution       :cmd> node server.js                      
  *  @description    :FundooNote
@@ -7,74 +6,46 @@
  *  @version        :1.0
  ******************************************************************************/
 const express = require('express');
+const cors = require('cors');
 
-//middleware for handling JSON, Raw, Text and URL encoded form data.
+/** @description middleware for handling JSON, Raw, Text and URL encoded form data. */
 const bodyParser = require('body-parser');
-const dbConfig = require('../server/config/databaseconfig')
+
 var routes = require('../server/router/route')
-var ctrl = require('../server/controller/regController')
-//require the mongoose.Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
+var ctrl = require('./controller/userController')
+
+/** @description require the mongoose.Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment */
 const mongoose = require('mongoose');
-//Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
+
+/** @description Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env */
 require('dotenv').config()
 const app = express();
 require('http').createServer(app);
-var redis = require('redis');
-var client = redis.createClient();
-
+var redisEvent = require('../server/services/internalServices/redisServices')
+var mongooseEvents = require('../server/services/internalServices/mongooseServices');
+//var logger=require('../server/services/internalServices/loggerServices')
+mongooseEvents.mongoose();
+redisEvent.redisEvent();
+app.use(cors());
+//logger.loggerEvent();
 
 mongoose.Promise = global.Promise;
-
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 
 /** 
-* @description: convert the text as JSON and show the resulting object.
-*/
+ * @description: convert the text as JSON and show the resulting object.
+ */
 app.use(bodyParser.json());
-// express-validator for server-side data validation.
+
+/** @description express-validator for server-side data validation. */
 var expressValidator = require('express-validator')
 app.use(expressValidator());
-
-
 app.use('/', routes)
 
+/** @description Connections to the server */
 var server = app.listen(3000, () => {
     console.log("Server is listening to port 3000");
 })
-
-
-mongoose.connect(dbConfig.url, {
-    useNewUrlParser: true
-}).then(() => {
-    console.log(" DB connected successfully");
-}).catch(err => {
-    console.log(" DB could not connect", err);
-    process.exit(0);
-})
-
-client.on('connect', function() {
-    console.log('Redis client connected');
-});
-
-// var expressWinston = require('express-winston');
-// var winston = require('winston')
-// app.use(expressWinston.logger({
-// transports: [
-// new winston.transports.Console()
-// ],
-// format: winston.format.combine(
-// winston.format.colorize(),
-// winston.format.json()
-// )
-// }));
-// app.use(expressWinston.errorLogger({
-// transports: [
-// new winston.transports.Console()
-// ],
-// format: winston.format.combine(
-// winston.format.colorize(),
-// winston.format.json()
-// )
-// }));
-
 module.exports = app;

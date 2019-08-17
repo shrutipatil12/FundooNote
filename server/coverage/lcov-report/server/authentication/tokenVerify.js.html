@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">70% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/21</span>
+        <span class='fraction'>14/20</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">71.43% </span>
+        <span class="strong">70% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/21</span>
+        <span class='fraction'>14/20</span>
       </div>
     </div>
     <p class="quiet">
@@ -136,25 +136,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -217,32 +217,32 @@
  
  ******************************************************************************/
 var jwt = require('jsonwebtoken');
-var redis = require('redis');
-var secret = "secretkey";
+//var redis = require('redis');
+var secret = 'secretKey';
 &nbsp;
-    exports.checkToken = (req, res, next) =&gt; {
-        try {
-        console.log("In authentication");
+exports.checkToken = (req, res, next) =&gt; {
+    try {
+        console.log("In authentication", req.headers);
         var token = req.headers['token'];
-        console.log("token in t verify",token);
-        
-         var Response={message:"invalid data"}
+        console.log("token in t verify", token);
+&nbsp;
+        var Response = { message: "invalid data" }
         <span class="missing-if-branch" title="else path not taken" >E</span>if (token) {
             //verify the token here
             jwt.verify(token, secret, (err, decoded) =&gt; {
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (err) {
                     // throw if unauthorized error occurs
                     console.log(err)
-                console.log("Response",Response);
-                
+                    console.log("Response", Response);
+&nbsp;
                     return res.status(401).send({ Response });
-                    
+&nbsp;
                 }
                 else {
                     //show result
 <span class="cstat-no" title="statement not covered" >                    console.log("Decoded data" + JSON.stringify(decoded));</span>
 <span class="cstat-no" title="statement not covered" >                    req.decoded = decoded;</span>
-<span class="cstat-no" title="statement not covered" >                    console.log("27 ",req.decoded)</span>
+<span class="cstat-no" title="statement not covered" >                    console.log("27 ", req.decoded)</span>
 <span class="cstat-no" title="statement not covered" >                    next();</span>
                 }
 &nbsp;
@@ -258,15 +258,15 @@ var secret = "secretkey";
 &nbsp;
 &nbsp;
 &nbsp;
-catch (err) {
-    //throw exception
-<span class="cstat-no" title="statement not covered" >    console.log(" error while generating the token");</span>
+    catch (err) {
+        //throw exception
+<span class="cstat-no" title="statement not covered" >        console.log(" error while generating the token", err);</span>
 &nbsp;
-}
     }
+}
 &nbsp;
 // exports.checkRedisToken = (req, res, next) =&gt; {
-  
+&nbsp;
 &nbsp;
 //         var jwt = require('jsonwebtoken');
 // //var client = redis.createClient();
@@ -287,7 +287,7 @@ catch (err) {
 //         });
 //         });
 //       }
-    
+&nbsp;
     //}
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -295,7 +295,7 @@ catch (err) {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 24 2019 19:48:36 GMT+0530 (IST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jul 11 2019 14:57:35 GMT+0530 (India Standard Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

@@ -8,40 +8,99 @@
 
  ******************************************************************************/
 var express = require('express');
-var userCtrl = require('../controller/regController')
-var userModel=require('../model/regModel')
+var userCtrl = require('../controller/userController')
+var shortUrlCtrl = require('../controller/shortUrlController')
+var userModel = require('../model/userModel')
 var router = express.Router();
 var verify = require('../authentication/tokenVerify')
-var upload=require('../middleWare/uploadProfile')
-var redis=require('../authentication/redisToken')
-
+var upload = require('../middleWare/uploadProfile')
+var redis = require('../authentication/redisToken')
+var noteCtrl = require('../controller/noteController')
+var labelCtrl=require('../controller/labelController')
 console.log("router");
 
-//login API
+/** @description login API */
 router.post('/login', userCtrl.login);
 
-//registeration API
-router.post('/register',userCtrl.register);
+/** @description registeration API */
+router.post('/register', userCtrl.register);
 
-//Verification API
-router.post('/isVerified',redis.checkRedisToken,userCtrl.isVerified);
+/** 
+ * @description Verification API
+ */
+router.post('/isVerified', verify.checkToken, userCtrl.isVerified);
 
-//reset password API
-router.post('/reset', verify.checkToken, userCtrl.reset);
+/** @description forget password API */
+router.post('/forget', userCtrl.forgetPassword);
+
+/** @description reset password API */
+router.post('/reset/:token',  verify.checkToken, userCtrl.reset);
 
 //router.verify=require('../authentication/tokenVerify')
 const authentication = require('./authentication');
 router.use('/authentication', authentication);
 
-//forget password API
-router.post('/forget', userCtrl.forgetPassword);
 
-//postUrl API
-router.post('/postUrl', userCtrl.postUrl);
 
-//getUrl API
-router.post('/getUrl', userCtrl.getUrl);
+/** @description postUrl API */
+router.post('/postUrl', shortUrlCtrl.postUrl);
 
-//uploadPhoto API
-router.post('/uploadPhoto',upload.single('image'),userCtrl.uploadPhoto);
+/** @description getUrl API */
+router.post('/getUrl', shortUrlCtrl.getUrl);
+
+
+/** @description uploadPhoto API*/
+router.post('/uploadPhoto', upload.single('image'), userCtrl.uploadPhoto);
+
+router.get('/getAllNote',redis.checkRedisToken, noteCtrl.getAllNote);
+
+
+/** @description createNote API*/
+router.post('/createNote',redis.checkRedisToken, noteCtrl.createNote);
+
+/** @description trashNote API*/
+router.post('/trashNote', redis.checkRedisToken,noteCtrl.trashNote);
+
+/** @description archivesNote API*/
+router.post('/archivesNote', redis.checkRedisToken,noteCtrl.archivesNote);
+
+/** @description reminderNote API*/
+router.post('/reminderNote',redis.checkRedisToken, noteCtrl.reminderNote);
+
+/** @description searchNote API*/
+router.post('/searchNote', redis.checkRedisToken,noteCtrl.searchNote);
+
+
+
+/** @description createLabel API*/
+router.post('/createLabel',redis.checkRedisToken, labelCtrl.createLabel);
+
+/** @description getLabel API*/
+router.post('/getLabel',redis.checkRedisToken, labelCtrl.getLabel);
+
+/** @description UpdateLabel API*/
+router.post('/updateLabel',redis.checkRedisToken, labelCtrl.updateLabel);
+
+/** @description deleteLabel API*/
+router.post('/deleteLabel',redis.checkRedisToken, labelCtrl.deleteLabel);
+
+/** @description addNoteInLabel API*/
+router.post('/addNoteInLabel',redis.checkRedisToken, labelCtrl.addNoteInLabel);
+
+/** @description deleteNoteFromLabel API*/
+router.post('/deleteNoteFromLabel',redis.checkRedisToken, labelCtrl.deleteNoteFromLabel);
+
+/** @description getAllTrashLabel API*/
+router.post('/getAllTrashNote',redis.checkRedisToken, noteCtrl.getAllTrashNote);
+
+/** @description getAllArchivesLabel API*/
+router.post('/getAllArchivesNote',redis.checkRedisToken, noteCtrl.getAllArchivesNote);
+
+
+
+
+
+
+
+
 module.exports = router;

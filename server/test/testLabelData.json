@@ -1,0 +1,115 @@
+{
+    "createLabel":{
+        
+	 "note_id": "5d17479e604c2d6dbc9d9206",
+     "userId": "5d230f1f5c35e7340aeca495",
+   "label":"new Label",
+        "_id":"5d1f1bfa83c9027e361069dd"
+        
+    },
+
+    "createlabel":{
+       
+	 "note_id": "5d17479e604c2d6dbc9d9206",
+     "userId": "5d230f1f5c35e7340aeca495",
+   "label":"",
+        "_id":"5d230f1f5c35e7340aeca495"
+        
+    },
+
+    "createL":{
+      
+	 "note_id": "5d17479e604c2d6dbc9d9206",
+     "userId": "5d230f1f5c35e7340aeca495",
+   "label":"new Label",
+        "_id":"5d2044323baa282a785e0cb2"
+        
+    },
+
+   
+    "getLabel":{
+        "userId":"5d1da264dc7338300d45fcc0",
+        "_id":"5d1f1bfa83c9027e361069dd"
+
+    },
+    "getlabel":{
+        "userId":"5d1da264dc7338300d45fcc0",
+        "_id":"5d1f1bfa83c9027e361069dd"
+
+    },
+    "getL":{
+        "userId":"5d1da264dc7338300d45fcc0",
+        "_id":"5d1f1bfa83c9027e361069dd"
+
+    },
+
+
+
+
+    "updateLabel":{
+        "_id": "5d1309520ea8c72d9edc041e",
+        "label": "java"
+    },
+    "updatelabel":{
+        "_id": "5d1309520ea8c72d9edc041e",
+        "label": "java"
+    },
+    "updateL":{
+        "_id": "5d1309520ea8c72d9edc041e",
+        "label": "java"
+    },
+
+
+
+
+    "deleteLabel":{
+        "_id": "5d1309520ea8c72d9edc041e"
+    },
+    "deletelabel":{
+        "_id": "5d1309520ea8c72d9edc041e"
+    },
+    "deleteL":{
+        "_id": "5d1309520ea8c72d9edc041e"
+    },
+
+
+
+
+    "addNoteInLabel":
+    {
+        "_id": "5d1309520ea8c72d9edc041e",
+        "note_id": "5d1f1bfa83c9027e361069dd"
+
+    },
+    "addNoteInlabel":
+    {
+        "_id": "5d1309520ea8c72d9edc041e",
+        "note_id": "5d1f1bfa83c9027e361069dd"
+
+    },
+    "addNoteInL":
+    {
+        "_id": "5d1309520ea8c72d9edc041e",
+        "note_id": "5d1f1bfa83c9027e361069dd"
+
+    },
+    "deleteNoteFromLabel":
+    {
+        "note_id": "5d17479e604c2d6dbc9d9206",
+        "_id": "5d230f1f5c35e7340aeca495"
+
+    },
+    "deleteNoteFromlabel":
+    {
+        "note_id": "5d17479e604c2d6dbc9d9206",
+        "_id": "5d1f1bfa83c9027e361069dd"
+
+    },
+    "deleteNoteFromL":
+    {
+        "note_id": "5d17479e604c2d6dbc9d9206",
+        "_id": " "
+
+    }
+   
+}

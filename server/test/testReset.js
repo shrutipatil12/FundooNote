@@ -12,11 +12,6 @@ chai.use(chaiHttp);
 chai.should()
 var server = require('../server');
 var fs = require('fs')
-// function readFile() {
-//     var obj=fs.readFileSync(`${__dirname}/testData.json`)
-//     var data = JSON.parse(obj);
-//     return data;
-// }
 const assert = require('chai').assert
 var jData = fs.readFileSync(`${__dirname}/testData.json`)
 var data = JSON.parse(jData)
@@ -24,15 +19,20 @@ var data = JSON.parse(jData)
 describe("Test case for Reset Password", () => {
     it("Reseting Password", (done) => {
         this.timeout=10000;
-       // var data=readFile();
-        chai.request(server).post('/reset').set('token',data.resetPassword.token).end((err, res) => {
-            if (err) {
+        //var data=readFile();
+        chai.request(server).post('/reset/:token').set('token',data.resetPassword.token).end((err, res) => {
+           // chai.request(server).post("/reset/:token").send(data.login).end((err, res) => {
+  
+        if (err) {
+                //Send error message
                 console.log("error in reset", err);
+                //Set status as 400 
                 err.should.have.status(400)
             }
             else {
+                //Send the result
                 console.log("result of reset password", res.body);
-               // res.should.have.status(200);
+                res.should.have.status(200);
             }
 
             done();

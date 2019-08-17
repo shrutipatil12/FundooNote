@@ -8,6 +8,6 @@
  ******************************************************************************/
 var express = require("express")
 var router = express.Router();
-var user = require('../controller/regController')
+var user = require('../controller/userController')
 var auth = require('../authentication/tokenVerify')
 module.exports = router;

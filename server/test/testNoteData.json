@@ -1,0 +1,81 @@
+
+{
+    "create":{
+    "userId": "5d22ec73f9f3dc1eaa5d020a",
+      "description": "First",
+      "title":"FirstNote",
+      "colorNote":"Blue",
+      "labelNote": "First",
+      "trash":"true",
+      "archives":"true",
+      "reminder": "10/10/2019",
+      "image":"/home/user/Pictures/FlowerDemo.jpeg"
+},
+"createNote":{
+    "userId": "5d22ec73f9f3dc1eaa5d020a",
+      "description": "First",
+      "title":"",
+      "colorNote":"Blue",
+      "labelNote": "First",
+      "trash":"true",
+      "archives":"true",
+      "reminder": "10/10/2019",
+      "image":"/home/user/Pictures/FlowerDemo.jpeg"
+},
+"createnote":{
+    "userId": "5d22ec73f9f3dc1eaa5d020a",
+      "description": "First",
+      "title":"FirstNote",
+      "colorNote":"Blue",
+      "labelNote": "First",
+      "trash":"true",
+      "archives":"23",
+      "reminder": "10/10/2019",
+      "image":"/home/user/Pictures/FlowerDemo.jpeg"
+},
+"trash":{
+    "userId": "5d1f1c7083c9027e361069de",
+    "trash":"true",
+    "_id":"5d22ec73f9f3dc1eaa5d020a"
+},
+
+"archivesNote":{
+    "userId": "5d1f1c7083c9027e361069de",
+    "_id":"5d22ec73f9f3dc1eaa5d020a",
+    "archives":"true"
+},
+"archives":{
+    "userId": "5d1f1c7083c902",
+    "_id":"5d22ec73f9f3dc1eaa5d020a",
+    "archives":""
+},
+"archivesnote":{
+    "userId": "5d1f1c7083c9027e361069de",
+    "_id":"5d1f1c7083c9027e361069de",
+    "archives":"true"
+},
+
+"reminderNotes":{
+    "userId": "5d1f1c7083c9027e361069de",
+    "_id":"5d22ec73f9f3dc1eaa5d020a",
+    "reminder": "10/10/2019"
+},
+
+"reminder":{
+    "userId": "5d1f1c7083c9027e361069de",
+    "_id":"5d22ec73f9f3dc1eaa5d020a",
+    "reminder": " "
+},
+
+"remindernotes":{
+    "userId": "5d22ec73f9f3dc1eaa5d020a",
+    "_id":"5d22ec73f9f3dc1eaa5d020a",
+    "reminder": "10/10/2019"
+},
+"login":{
+    "_id":"5d230f1f5c35e7340aeca495"
+}
+}
+
+
+
