@@ -93,8 +93,10 @@ module.exports.createNote = (req, res) => {
 module.exports.getAllNote=(req,res)=>{
   try{
   var getNoteData={
-    email:req.body.email
+    id:req.decoded.payload._id
   }
+  console.log("checking id from controller===>",getNoteData);
+  
   var response={};
   noteService.noteServiceGetAllNote(getNoteData,(err,result)=>{
     if (err) {
@@ -110,7 +112,7 @@ module.exports.getAllNote=(req,res)=>{
       response.message = "GetAllNote data"
       response.data = result
       res.status(200).send(response);
-      notelogger.error("result error", err)
+      // notelogger.er("result error", err)
 
     }
   })
@@ -184,7 +186,7 @@ module.exports.archivesNote = (req, res) => {
     /** @description Bind the data and send it to the service function */
     var archivesData = {
       _id: req.body._id,
-      archives: req.body.archives
+      archives: true
     }
     var response = {};
 
@@ -202,7 +204,6 @@ module.exports.archivesNote = (req, res) => {
         response.message = "archives data"
         response.data = result;
         res.status(200).send(response);
-        notelogger.error("result error", err)
 
       }
     })
@@ -241,7 +242,6 @@ module.exports.reminderNote = (req, res) => {
         response.message = "reminder data"
         response.data = result;
         res.status(200).send(response);
-        notelogger.error("result error", err)
 
       }
     })
@@ -369,14 +369,10 @@ module.exports.getAllArchivesNote = (req, res) => {
     var response = {};
     var archivesData = {
       userId: req.body.userId,
-      description: req.body.description,
-      title: req.body.title,
-      color: req.body.color,
-      label: req.body.label,
-      trash: req.body.archives,
-      reminder: req.body.reminder,
-      image: req.body.image
+     
     }
+    console.log("req.decoded",req.decoded);
+    
     noteService.noteServiceGetAllArchivesNote(archivesData, (err, result) => {
       if (err) {
         /** @description Send the error status */
@@ -391,7 +387,7 @@ module.exports.getAllArchivesNote = (req, res) => {
         response.message = "successfully get all archives ";
         response.data = result;
         res.status(200).send(response);
-        notelogger.error("result error", err)
+        // notelogger.error("result error", err)
 
       }
     })

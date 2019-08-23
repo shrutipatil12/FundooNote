@@ -205,14 +205,16 @@ class noteModel {
             console.log("model get",findData);
 
             /** @description As per the user input find the fields from the database */
-            let result =  noteDatabase.find(findData,(err,result)=>{
+             noteDatabase.find(findData,(err,result)=>{
+       if(err){
+           console.log("error",err);
+           
+       }
 
-         
-
-            if (result == null) {
+            else if (result == null) {
                 /** @description return the error */
                 console.log("error in getNote note", err);
-                callback(err);
+                callback(null,result);
             }
             else {
                 /** @de scription return the result data */

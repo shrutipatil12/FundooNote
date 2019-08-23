@@ -9,11 +9,13 @@
 var redis = require('redis');
 //var secret = process.env.secret;
 var secret = 'secretKey';
+var client = redis.createClient();
+var jwt = require('jsonwebtoken');
+
 exports.checkRedisToken = (req, res, next) => {
 
 
-  var jwt = require('jsonwebtoken');
-  var client = redis.createClient();//Create the new redis client 
+ //Create the new redis client 
   console.log("in get client 8", req.headers['_id']);
 
   client.get(req.headers['_id'], function (error, result) {
@@ -30,7 +32,7 @@ exports.checkRedisToken = (req, res, next) => {
         }
         else {
           //Send the status as 200 for successful result
-
+          
           req.decoded = resVerify;
           next();
 

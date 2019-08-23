@@ -44,7 +44,7 @@ class userServices {
 
     userServiceLogin(data, callback) {
         try {
-            console.log("service 35");
+            console.log("service 35" ,data);
 
             userModel.get(data, (err, result) => {
                 if (err) {

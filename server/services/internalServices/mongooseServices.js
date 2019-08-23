@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 
 var fs = require('fs')
 
-var jData = fs.readFileSync("/home/admin1/Desktop/shruti/FundooNote/server/config/configDatabase.json");
+var jData = fs.readFileSync("/home/admin1/Desktop/shrutiB/shruti/FundooNote/server/config/configDatabase.json");
 var data = JSON.parse(jData)
 
 

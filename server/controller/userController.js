@@ -126,8 +126,7 @@ module.exports.login = (req, res) => {
         response.err = err;
         res.status(400).send(response);
       } else {
-        response.success = true;
-        response.message = "login data"
+    
         console.log("data in ctrl login", data._id);
 
         const payload = {
@@ -147,7 +146,7 @@ module.exports.login = (req, res) => {
         console.log("loginToken in ctrl", loginToken)
 
         //set the redis client to verify the token
-        client.set((payload._id), resObj.token, function (error, result) {
+        client.set((payload._id.toString()), resObj.token.toString(), function (error, result) {
           if (error) {
             //report the error if any occure
             console.log("error in redis set client", error);
@@ -161,9 +160,15 @@ module.exports.login = (req, res) => {
           token: loginToken,
           _id: payload._id
         }
-        response.data = userData
+        console.log("data in login ctrllllll",resObj.token);
+        
+        response.data = data
+        response.token=loginToken
         //return the result
-
+        // console.log("data in reg ctrllllll",response.token);
+        
+        response.success = true;
+        response.message = "login data"
         res.status(200).send(response);
 
         //return the result message data as result

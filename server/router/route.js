@@ -52,17 +52,17 @@ router.post('/getUrl', shortUrlCtrl.getUrl);
 /** @description uploadPhoto API*/
 router.post('/uploadPhoto', upload.single('image'), userCtrl.uploadPhoto);
 
-router.get('/getAllNote',redis.checkRedisToken, noteCtrl.getAllNote);
+router.get('/getAllNote', verify.checkToken, noteCtrl.getAllNote);
 
 
 /** @description createNote API*/
 router.post('/createNote',redis.checkRedisToken, noteCtrl.createNote);
 
 /** @description trashNote API*/
-router.post('/trashNote', redis.checkRedisToken,noteCtrl.trashNote);
+router.post('/trashNote', verify.checkToken,noteCtrl.trashNote);
 
 /** @description archivesNote API*/
-router.post('/archivesNote', redis.checkRedisToken,noteCtrl.archivesNote);
+router.post('/archivesNote', verify.checkToken,noteCtrl.archivesNote);
 
 /** @description reminderNote API*/
 router.post('/reminderNote',redis.checkRedisToken, noteCtrl.reminderNote);
@@ -94,7 +94,7 @@ router.post('/deleteNoteFromLabel',redis.checkRedisToken, labelCtrl.deleteNoteFr
 router.post('/getAllTrashNote',redis.checkRedisToken, noteCtrl.getAllTrashNote);
 
 /** @description getAllArchivesLabel API*/
-router.post('/getAllArchivesNote',redis.checkRedisToken, noteCtrl.getAllArchivesNote);
+router.get('/getAllArchivesNote', verify.checkToken, noteCtrl.getAllArchivesNote);
 
 
 

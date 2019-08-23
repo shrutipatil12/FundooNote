@@ -39,11 +39,13 @@ class noteService {
         try {
             //console.log("req in service: ", req);
 
-            // var getNoteData = {
-            //     email: res.email
-            // }
+            var getNoteData = {
+                userId:res.id,
+                trash:false,
+                archives:false
+            }
             console.log("in getNotenote", res)
-            noteModel.get(res, (err, result) => {
+            noteModel.get(getNoteData, (err, result) => {
                 if (err) {
                     /**  Send the error message */
                     console.log("services error");
@@ -212,9 +214,10 @@ class noteService {
     noteServiceGetAllArchivesNote(data, callback) {
         try {
             var archivesData = {
-                archives: true
+                archives: true,
+                userId:data.userId
             }
-            noteModel.searchNote(data, archivesData, (err, result) => {
+            noteModel.get(archivesData, (err, result) => {
                 if (err) {
                     /** @description Send the error message */
                     console.log("error in getArchivesNote", err);

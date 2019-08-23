@@ -109,7 +109,7 @@ async create (reqData, callback) {
                reqData.password=Password;
                
                 console.log("register firstnm 69", reqData.firstname)
-                const newUser = new user(+
+                const newUser = new user(
                     
                     {
                         "firstname": reqData.firstname,
@@ -148,7 +148,7 @@ async create (reqData, callback) {
 async get(data, callback) {
     try {
        console.log("model 106", data.email);
-       
+       console.log("model 106 password", data.password);
        let result=await user.findOne({ 'email': data.email })
             // if (result==null) {
             //     //console.log(err);
