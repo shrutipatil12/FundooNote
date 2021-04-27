@@ -30,7 +30,7 @@
     "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "redis-server": "^1.2.2",
     "short-id": "0.1.0-1",
     "short-url": "0.0.1",
